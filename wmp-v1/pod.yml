@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: frontend
+      image: 741957640498.dkr.ecr.us-east-1.amazonaws.com/frontend
+    - name: portfolio-service
+      image: 741957640498.dkr.ecr.us-east-1.amazonaws.com/portfolio-service
+    - name: auth-service
+      image: 741957640498.dkr.ecr.us-east-1.amazonaws.com/auth-service
+    - name: analytics-service
+      image: 741957640498.dkr.ecr.us-east-1.amazonaws.com/analytics-service
+      
