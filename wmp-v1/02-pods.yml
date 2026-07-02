@@ -15,6 +15,43 @@ spec:
   containers:
     - name: auth-service
       image: 741957640498.dkr.ecr.us-east-1.amazonaws.com/auth-service
+      env:
+        - name: DB_HOST
+          value: "wmp-dev.ca7so8yw8r9s.us-east-1.rds.amazonaws.com"
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_USER
+          value: "auth_svc_user"
+        - name: DB_PASSWORD
+          value: "localdev123"
+        - name: DB_NAME
+          value: "wmp"
+        - name: DB_SCHEMA
+          value: "auth_schema"
+        - name: SERVER_PORT
+          value: "8081"
+        - name: JWT_SECRET
+          value: "myDefaultSuperSecretKeyThatIsAtLeast256BitsLongForHS256Algorithm"
+        - name: PORTFOLIO_SERVICE_URL
+          value: "http://localhost:8080"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: analytics-service
+spec:
+  containers:
+    - name: analytics-service
+      image: 741957640498.dkr.ecr.us-east-1.amazonaws.com/analytics-service
+      env:
+        - name: DATABASE_URL
+          value: "postgresql+asyncpg://analytics_svc_user:localdev123@wmp-dev.ca7so8yw8r9s.us-east-1.rds.amazonaws.com:5432/wmp"
+        - name: DB_SCHEMA
+          value: "analytics_schema"
+        - name: LOG_LEVEL
+          value: "INFO"
+        - name: ENVIRONMENT
+          value: "production"
 ---
 apiVersion: v1
 kind: Pod
@@ -37,15 +74,4 @@ spec:
           value: myDefaultSuperSecretKeyThatIsAtLeast256BitsLongForHS256Algorithm
         - name: SERVER_PORT
           value: "8080"
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: analytics-service
-spec:
-  containers:
-    - name: analytics-service
-      image: 741957640498.dkr.ecr.us-east-1.amazonaws.com/analytics-service
-
-      
 
