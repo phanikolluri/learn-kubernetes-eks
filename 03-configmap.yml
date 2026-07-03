@@ -53,7 +53,7 @@ spec:
 apiVersion:  v1
 kind: ConfigMap
 metadata:
-  name: game-demo1
+  name: game-demo-1
 data:
   config: |
     player_initial_lives="3"
@@ -75,7 +75,7 @@ spec:
   volumes:
     - name: config
       configMap:
-        - name: game-demo
+        - name: game-demo-1
 
        
 
