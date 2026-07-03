@@ -1,0 +1,13 @@
+appVersion: 01
+kind: Pod
+metadata:
+  name: label-demo-1
+  labels:
+    appName: label-demo
+    podName: label-demo-1
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+
+
