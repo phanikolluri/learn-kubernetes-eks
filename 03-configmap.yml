@@ -19,6 +19,6 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: game-demo
-              key: player_iniital_lives
+              key: player_initial_lives
               
             
