@@ -22,7 +22,7 @@ data:
    DB_SCHEMA: "auth_schema"
    SERVER_PORT: "8081"
    JWT_SECRET: "myDefaultSuperSecretKeyThatIsAtLeast256BitsLongForHS256Algorithm"
-   PORTFOLIO_SERVICE_URL: "http://localhost:8080"
+   PORTFOLIO_SERVICE_URL: "http://portfolio-service:8080"
 
 ---
 apiVersion: v1
@@ -68,11 +68,11 @@ kind: ConfigMap
 metadata:
   name: portfolio-service-config
 data:
-  SPRING_PROFILES_ACTIVE: production
+  SPRING_PROFILES_ACTIVE: "production"
   SPRING_DATASOURCE_URL: "jdbc:postgresql://wmp-dev.ca7so8yw8r9s.us-east-1.rds.amazonaws.com:5432/wmp?currentSchema=portfolio_schema"
-  SPRING_DATASOURCE_USERNAME: portfolio_svc_user
-  SPRING_DATASOURCE_PASSWORD: localdev123
-  JWT_SECRET: myDefaultSuperSecretKeyThatIsAtLeast256BitsLongForHS256Algorithm
+  SPRING_DATASOURCE_USERNAME: "portfolio_svc_user"
+  SPRING_DATASOURCE_PASSWORD: "localdev123"
+  JWT_SECRET: "myDefaultSuperSecretKeyThatIsAtLeast256BitsLongForHS256Algorithm"
   SERVER_PORT: "8080"
 
 ---
