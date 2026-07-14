@@ -17,7 +17,7 @@ spec:
           image: nginx:1.25
 
 ---
-apiVersion: apps/v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: app02
