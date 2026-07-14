@@ -22,7 +22,7 @@ kind: Pod
 metadata:
   name: app02
   labels:
-    tier: frontend
+    tier: app02
 spec:
   containers:
     - name: nginx
